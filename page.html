@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вторая страница</title>
+    <link rel="stylesheet" href="style.css"> <!-- Подключает тот же стиль -->
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.ibb.co/84P7Rcs8/photo-5301046910049708716-x.jpg" class="button-img">
+        <img src="https://i.ibb.co/GQscwYHy/photo-5301046910049708717-x.jpg" class="button-img">  
+        <button class="back-button" onclick="goBack()">Назад</button>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back(); // Возвращает на предыдущую страницу
+        }
+    </script>
+</body>
+</html>

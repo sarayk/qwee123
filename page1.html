@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первая страница</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.gifer.com/4ShV.gif" class="decorative-gif">
+        <img src="https://i.ibb.co/84P7Rcs8/photo-5301046910049708716-x.jpg" class="button-img" onclick="getRandomNumber()">
+        <p id="randomNumber">0.00</p>
+        <button class="back-button" onclick="goBack()">Назад</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

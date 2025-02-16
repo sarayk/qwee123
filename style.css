@@ -10,8 +10,10 @@ button {
     margin: 10px;
     cursor: pointer;
 }
+
 .button-img {
-    width: 100px;  /* Размер картинок */
+    width: 150px;  /* Размер картинок */
+    height: auto;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -19,6 +21,7 @@ button {
 .button-img:hover {
     transform: scale(1.1); /* Лёгкое увеличение при наведении */
 }
+
 body {
     background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxZnMxbmR3ajZkMGRmazJ0bGYxNGxsczk3NnluMGp0b3RtbGN5YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GmQJGrdOJCBsbmPM53/giphy.gif"); /* Замени на свою гифку */
     background-size: cover;  /* Заполняет весь экран */
@@ -34,12 +37,13 @@ body {
         background-attachment: scroll; /* Отключает фиксацию */
     }
 }
+
+/* Центрирование кнопок и добавление отступов между ними */
 .container {
     display: flex;
     justify-content: center;  /* Центрирует кнопки по горизонтали */
     align-items: center;      /* Центрирует по вертикали */
     flex-direction: column;   /* Размещает кнопки вертикально */
-    height: 100vh;            /* Заполняет всю высоту экрана */
     gap: 20px;                /* Отступ между кнопками */
 }
 
@@ -61,6 +65,7 @@ body {
         width: 120px;  /* Уменьшенный размер на мобильных */
     }
 }
+
 #randomNumber {
     font-size: 48px; /* Увеличенный размер шрифта */
     font-weight: bold; /* Жирный текст */
@@ -70,6 +75,7 @@ body {
     margin-top: 15px; /* Больше отступ сверху */
     text-align: center; /* Центрирование текста */
 }
+
 .decorative-gif {
     width: 100%; /* Подгоняет под ширину экрана */
     max-width: 400px; /* Ограничивает размер */

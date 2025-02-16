@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            grid-template-rows: repeat(5, 50px);
+            gap: 5px;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+        .cell.star {
+            background-color: yellow;
+        }
+        .cell.trap {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Поле 5x5</h1>
+
+    <!-- Регулятор для выбора количества ловушек -->
+    <label for="trap-count">Выберите количество ловушек:</label>
+    <select id="trap-count">
+        <option value="1">1</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+        <option value="7">7</option>
+    </select>
+
+    <br>
+
+    <!-- Кнопка для запуска игры -->
+    <button onclick="startGame()">Играть</button>
+
+    <br>
+
+    <!-- Поле 5x5 -->
+    <div class="grid" id="game-board">
+        <!-- Здесь будет отображаться поле -->
+    </div>
+
+    <!-- Кнопка для возврата на главную страницу -->
+    <button onclick="window.location.href='index.html'">На главную</button>
+
+    <script>
+        function startGame() {
+            const trapCount = parseInt(document.getElementById('trap-count').value);
+            const board = document.getElementById('game-board');
+            board.innerHTML = ''; // Очищаем поле
+
+            // Заполняем поле 5x5
+            const cells = [];
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                board.appendChild(cell);
+                cells.push(cell);
+            }
+
+            // Ставим ловушки
+            let trapsPlaced = 0;
+            while (trapsPlaced < trapCount) {
+                const randomIndex = Math.floor(Math.random() * cells.length);
+                const cell = cells[randomIndex];
+
+                // Если в этой ячейке уже есть ловушка, пробуем снова
+                if (!cell.classList.contains('trap')) {
+                    cell.classList.add('trap');
+                    trapsPlaced++;
+                }
+            }
+
+            // Ставим звездочки (безопасные пути)
+            const starsCount = 5; // Количество звездочек на поле
+            for (let i = 0; i < starsCount; i++) {
+                let placed = false;
+                while (!placed) {
+                    const randomIndex = Math.floor(Math.random() * cells.length);
+                    const cell = cells[randomIndex];
+
+                    // Если ячейка не ловушка, ставим звездочку
+                    if (!cell.classList.contains('trap') && !cell.classList.contains('star')) {
+                        cell.classList.add('star');
+                        placed = true;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
